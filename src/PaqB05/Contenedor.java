@@ -37,7 +37,6 @@ public class Contenedor {
 
 
     /*####################################### Getters y setters ############################################*/
-
     public int getIdentificador() { return identificador;}
     public int getPeso() { return peso;}
     public String getProcedencia() { return procedencia; }
@@ -47,51 +46,15 @@ public class Contenedor {
     public String getRemitente() { return remitente; }
     public String getReceptor() { return receptor; }
 
-    public void setIdentificador(int identificador) {
-        this.identificador = identificador;
-    }
-
-    public void setPeso(int peso) {
-        this.peso = peso;
-    }
-
-    public void setProcedencia(String procedencia) {
-        this.procedencia = procedencia;
-    }
-
-    public void setAduanas(boolean aduanas) {
-        this.aduanas = aduanas;
-    }
-
-    public void setPrioridad(int prioridad) {
-        if (prioridad > 0 && prioridad < 4) {
-            this.prioridad = prioridad;
-        }
-
-    }
-
-    public void setDescripcion(String descripcion) {
-        if (descripcion.length() <= 100) {
-            this.descripcion = descripcion;
-        }
-    }
-
-    public void setRemitente(String remitente) {
-        if (descripcion.length() <= 20) {
-            this.remitente = remitente;
-        }
-    }
-
-    public void setReceptor(String receptor) {
-        if (descripcion.length() <= 100) {
-            this.receptor = receptor;
-        }
-    }
-
-
-
-
-
+    public void setIdentificador(int identificador) { this.identificador = identificador; }
+    public void setPeso(int peso) { this.peso = peso; }
+    public void setProcedencia(String procedencia) { this.procedencia = procedencia; }
+    public void setAduanas(boolean aduanas) { this.aduanas = aduanas; }
+    public void setPrioridad(int prioridad) { this.prioridad = prioridad; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public void setRemitente(String remitente) { this.remitente = remitente; }
+    public void setReceptor(String receptor) { this.receptor = receptor; }
+    /*######################################################################################################*/
 
 
 
