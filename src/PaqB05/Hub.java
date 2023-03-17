@@ -25,6 +25,41 @@ public class Hub {
 
 
     /*####################################### Métodos generales ############################################*/
+    public void apilarContenedor(Contenedor cont) {
+        if (cont != null) {
 
+            switch (cont.getPrioridad()) {
+                case 1:
+
+                case 2:
+                    int col = cont.getPrioridad() - 1;
+
+                    for (int i = contenedores.length - 1; i >= 0; i--) {
+
+                        if (contenedores [i][col] == null) {
+                            contenedores [i][col] = cont;
+                            return;
+                        }
+
+                    }
+
+                    break;
+
+                case 3:
+                    for (int j = 2; j < contenedores[0].length; j++) {
+                        for (int i = contenedores.length - 1; i >= 0; i--) {
+
+                            if (contenedores [i][j] == null) {
+                                contenedores[i][j] = cont;
+                                return;
+                            }
+                        }
+                    }
+
+                    break;
+
+            }
+        }
+    }
     /*######################################################################################################*/
 }

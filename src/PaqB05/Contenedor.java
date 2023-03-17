@@ -32,6 +32,14 @@ public class Contenedor {
 
     /*####################################### Getters y setters ############################################*/
 
+    public int getIdentificador() { return identificador;}
+    public int getPeso() { return peso;}
+    public String getProcedencia() { return procedencia; }
+    public boolean isAduanas() { return aduanas; }
+    public int getPrioridad() { return prioridad; }
+    public String getDescripcion() {return descripcion; }
+    public String getRemitente() { return remitente; }
+    public String getReceptor() { return receptor; }
 
     public void setIdentificador(int identificador) { this.identificador = identificador; }
     public void setPeso(int peso) { this.peso = peso; }
