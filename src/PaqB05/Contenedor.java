@@ -2,14 +2,14 @@ package PaqB05;
 
 /**
  * Clase que define un contenedor marítimo. La información relativa a un contenedor viene dada por:</br><ul>
- *     <li>Número de identificación.</li>
- *     <li>Peso.</li>
- *     <li>País de procedencia.</li>
- *     <li>Si se ha inspeccionado en aduanas.</li>
- *     <li>Prioridad (entre 1 y 3).</li>
- *     <li>Descripción del contenido (máx. 100 caracteres).</li>
- *     <li>Nombre de la empresa remitente (máx. 20 caracteres).</li>
- *     <li>Nombre de la empresa receptora (máx. 20 caracteres).</li>
+ * <li>Número de identificación.</li>
+ * <li>Peso.</li>
+ * <li>País de procedencia.</li>
+ * <li>Si se ha inspeccionado en aduanas.</li>
+ * <li>Prioridad (entre 1 y 3).</li>
+ * <li>Descripción del contenido (máx. 100 caracteres).</li>
+ * <li>Nombre de la empresa remitente (máx. 20 caracteres).</li>
+ * <li>Nombre de la empresa receptora (máx. 20 caracteres).</li>
  * </ul>
  */
 public class Contenedor {
@@ -22,16 +22,21 @@ public class Contenedor {
     private String remitente;   // máximo 20 caracteres.
     private String receptor;    // máximo 20 caracteres.
 
+    public Contenedor(int identificador, int peso, String procedencia, boolean aduanas, int prioridad, String descripcion, String remitente, String receptor) {
+        this.identificador = identificador;
+        this.peso = peso;
+        this.procedencia = procedencia;
+        this.aduanas = aduanas;
+        setPrioridad(prioridad);
+        setDescripcion(descripcion);
+        setRemitente(remitente);
+        setReceptor(receptor);
 
-
-    /*######################################### Constructores ##############################################*/
-
-    /*######################################################################################################*/
+    }
 
 
 
     /*####################################### Getters y setters ############################################*/
-
     public int getIdentificador() { return identificador;}
     public int getPeso() { return peso;}
     public String getProcedencia() { return procedencia; }
