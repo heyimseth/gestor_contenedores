@@ -36,6 +36,8 @@ public class Contenedor {
 
 
 
+
+
     /*####################################### Getters y setters ############################################*/
     public int getIdentificador() { return identificador;}
     public int getPeso() { return peso;}
