@@ -12,7 +12,7 @@ package PaqB05;
  * <li>Nombre de la empresa receptora (máx. 20 caracteres).</li>
  * </ul>
  */
-public class Contenedor {
+public class Contenedor{
     private int identificador;
     private int peso;
     private String procedencia;
@@ -59,6 +59,21 @@ public class Contenedor {
 
 
     /*####################################### Métodos generales ############################################*/
+
+    public void calcularcontpais(String procedencia){
+
+        int cont;
+
+        cont = 0;
+
+        if(procedencia.equals(this.procedencia)){
+
+            cont= cont + 1;
+
+        }
+
+    }
+
 
     /*######################################################################################################*/
 }

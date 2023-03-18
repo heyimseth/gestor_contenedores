@@ -19,7 +19,9 @@ public class Hub {
     }
 
     public Contenedor[][] getContenedores() {
+
         return contenedores;
+
     }
 
     public String mostrarDatos(int identificador) {
@@ -80,5 +82,19 @@ public class Hub {
             }
         }
     }
+
+
+
+
+    public String toString(){
+
+        String s = new String();
+
+        s += getContenedores();
+
+        return s;
+
+    }
+
     /*######################################################################################################*/
 }
