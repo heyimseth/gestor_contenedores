@@ -60,20 +60,6 @@ public class Contenedor{
 
     /*####################################### Métodos generales ############################################*/
 
-    public void calcularcontpais(String procedencia){
-
-        int cont;
-
-        cont = 0;
-
-        if(procedencia.equals(this.procedencia)){
-
-            cont= cont + 1;
-
-        }
-
-    }
-
 
     /*######################################################################################################*/
 }
