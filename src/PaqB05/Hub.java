@@ -19,7 +19,9 @@ public class Hub {
     }
 
     public Contenedor[][] getContenedores() {
+
         return contenedores;
+
     }
 
     public String mostrarDatos(int identificador) {
@@ -80,5 +82,64 @@ public class Hub {
             }
         }
     }
+
+
+
+
+
+    public void calcularcontpais(String procedencia){
+
+        int cont;
+
+        cont = 0;
+
+        for (int i = 0; i < 10; i++) {
+
+            for (int j = 0; j < 12; j++) {
+
+                if(procedencia.equals(contenedores[i][j].getProcedencia())){
+
+                    cont++;
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+
+
+    public String toString(){
+
+        String s = new String();
+
+        for (int i = 0; i < 12; i++) {
+
+            for (int j = 0; j < 10; j++) {
+
+
+                if(contenedores[i][j] != null){
+
+                    s += "X";
+
+                }
+
+                else{
+
+                    s += " ";
+
+                }
+
+            }
+
+        }
+
+        return s;
+
+    }
+
     /*######################################################################################################*/
 }
