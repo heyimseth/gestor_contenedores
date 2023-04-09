@@ -1,7 +1,8 @@
+import PaqB05.*;
+import PaqB05.interfaz.*;
+
 public class Main {
     public static void main(String[] args) {
-
-        System.out.println("Hello world!");
-
+        VentanaPrincipal principal = new VentanaPrincipal(new Puerto());
     }
 }

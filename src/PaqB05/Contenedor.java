@@ -22,6 +22,7 @@ public class Contenedor{
     private String remitente;   // máximo 20 caracteres.
     private String receptor;    // máximo 20 caracteres.
 
+
     /**
      * Constructor de la clase Contenedor.
      *
