@@ -39,7 +39,9 @@ public class Hub {
      * @return el hub de contenedores.
      */
     public Contenedor[][] getContenedores() {
+
         return contenedores;
+
     }
 
 
