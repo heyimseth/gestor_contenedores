@@ -10,8 +10,8 @@ package PaqB05;
  */
 public class Hub {
     private Contenedor[][] contenedores;    // debe inicializarse con 10 filas y 12 columnas.
-    private static int numContenedor = 1;   // utilizado para asignar un identificador (único en el puerto)
-                                            // a cada contenedor antes de apilarlos.
+    private static int numContenedor = 1;           // utilizado para asignar un identificador (único en el
+                                                    // puerto) a cada contenedor antes de apilarlos.
 
 
     /**
@@ -43,6 +43,9 @@ public class Hub {
     }
 
 
+    public static int getNumContenedor() { return Hub.numContenedor; }
+
+
     /**
      * Busca en este Hub un contenedor con el número de identificador dado, y si lo encuentra, devuelve una
      * cadena con la información del mismo. En caso de no encontrarlo, indica con otra cadena que no ha podido
@@ -51,23 +54,18 @@ public class Hub {
      * @param identificador identificador del contenedor a buscar.
      * @return cadena con la información del contenedor.
      */
-    public String mostrarDatos(int identificador) {
+    public Contenedor mostrarDatos(int identificador) {
         Contenedor encontrado = null;
 
         for (int i = 0; i < this.contenedores.length; i++) {
             for (int j = 0; j < this.contenedores[0].length; j++) {
-                if (this.contenedores[i][j].getIdentificador() == identificador) {
+                if (this.contenedores[i][j] != null && this.contenedores[i][j].getIdentificador() == identificador) {
                     encontrado = contenedores[i][j];
                 }
             }
         }
 
-        if (encontrado != null) {
-            return encontrado.toString();
-        } else {
-            return "El contenedor facilitado no se encuentra en nuestro almacén.";
-        }
-
+        return encontrado;
     }
 
 
@@ -78,7 +76,7 @@ public class Hub {
      *
      * @param cont contenedor a apilar
      */
-    public void apilarContenedor(Contenedor cont) {
+    public boolean apilarContenedor(Contenedor cont) {
         if (cont != null) {
             cont.setIdentificador(Hub.numContenedor);
             Hub.numContenedor++;
@@ -91,7 +89,7 @@ public class Hub {
                     for (int i = this.contenedores.length - 1; i >= 0; i--) {
                         if (this.contenedores[i][col] == null) {
                             this.contenedores[i][col] = cont;
-                            return;
+                            return true;
                         }
                     }
 
@@ -102,7 +100,7 @@ public class Hub {
                         for (int i = this.contenedores.length - 1; i >= 0; i--) {
                             if (this.contenedores[i][j] == null) {
                                 this.contenedores[i][j] = cont;
-                                return;
+                                return true;
                             }
                         }
                     }
@@ -110,6 +108,8 @@ public class Hub {
                     break;
             }
         }
+
+        return false;
     }
 
 
@@ -118,21 +118,20 @@ public class Hub {
      * encuentra en el rango válido, devuelve null en lugar del contenedor.
      *
      * @param columna número de columna de la que desapilar un contenedor.
-     * @return el contenedor desapilado.
      */
-    public Contenedor desapilarContenedor(int columna) {
-        Contenedor c = null;
+    public boolean desapilarContenedor(int columna) {
+        boolean desapilado = false;
 
         if (columna >= 0 && columna < this.contenedores[0].length) {
-            for (int i = 0; i < this.contenedores.length; i++) {
+            for (int i = 0; i < this.contenedores.length && !desapilado; i++) {
                 if (this.contenedores[i][columna] != null) {
-                    c = this.contenedores[i][columna];
                     this.contenedores[i][columna] = null;
+                    desapilado = true;
                 }
             }
         }
 
-        return c;
+        return desapilado;
     }
 
 
@@ -145,9 +144,9 @@ public class Hub {
     public int calcularContenedoresPorPais(String procedencia) {
         int cont = 0;
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 12; j++) {
-                if (procedencia.equals(this.contenedores[i][j].getProcedencia())) {
+        for (int i = 0; i < this.contenedores.length; i++) {
+            for (int j = 0; j < this.contenedores[i].length; j++) {
+                if (this.contenedores[i][j] != null && procedencia.equals(this.contenedores[i][j].getProcedencia())) {
                     cont++;
                 }
             }
@@ -165,12 +164,12 @@ public class Hub {
     public String toString() {
         StringBuffer s = new StringBuffer();
 
-        for (int i = 0; i < 12; i++) {
-            for (int j = 0; j < 10; j++) {
+        for (int i = 0; i < this.contenedores.length; i++) {
+            for (int j = 0; j < this.contenedores[i].length; j++) {
                 if (this.contenedores[i][j] != null) {
-                    s.append(" X ");
+                    s.append("   O   ");
                 } else {
-                    s.append("   ");
+                    s.append("   L   ");
                 }
             }
             s.append("\n");
